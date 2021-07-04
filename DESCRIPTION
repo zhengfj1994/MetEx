@@ -1,0 +1,47 @@
+Package: MetEx
+Type: Package
+Title: Targeted extraction from untargeted metabolomics dataset by using metabolomics database
+Version: 1.0.0
+Author: Fujian Zheng
+Maintainer: Fujian Zheng <zhengfj@dicp.ac.cn>
+Depends: R (>= 3.6.0),
+Imports: stats,
+         openxlsx, 
+         tcltk, 
+         doSNOW,
+         stringr, 
+         xcms, 
+         do, 
+         KEGGREST,
+         XML,
+         progress,
+         shinydashboard,
+         shinycssloaders,
+         shinyjs,
+         ggrepel,
+         DT,
+         dplyr,
+         foreach,
+         jsonlite,
+         snow,
+         tidyr,
+         Rcpp,
+         DIAlignR,
+         minpack.lm,
+         purrr,
+         rlang,
+         peakPantheR
+Suggests: BiocManager,
+          knitr,
+          shiny,
+          ggplot2,
+          RColorBrewer,
+          fffprocessr
+Description: When we have untargeted metabolomics data. The first step is peak detection by some software. Some features maybe lost in this process.
+             So we want to use targeted extraction from untargeted metabolomics dataset by using metabolomics database to find some feature which can't find in peak detection.
+License: MIT + file LICENSE
+URL: https://github.com/zhengfj1994/MetEx
+BugReports: https://github.com/zhengfj1994/MetEx/issues/new
+VignetteBuilder: knitr
+Encoding: UTF-8
+RoxygenNote: 7.1.1
