@@ -60,7 +60,7 @@ annotationFromPeakTable.parallel <- function(peakTable,
                                     MS1MS2DeltaMZ,
                                     MS2DeltaMZ,
                                     scoreMode = 'average',
-                                    cores){
+                                    cores = 1){
   # require("openxlsx")
   # require("dplyr")
   # require("tcltk")

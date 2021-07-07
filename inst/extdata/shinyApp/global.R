@@ -66,6 +66,24 @@ body <- dashboardBody(
     ),
     ############################################################################
     tabItem(
+      tabName = "Database_download",
+      source(
+        file = "main/Database.download.ui.R",
+        local = T,
+        encoding = "UTF-8"
+      )$value
+    ),
+    ############################################################################
+    tabItem(
+      tabName = "Chromatographic_systems",
+      source(
+        file = "main/ChromatographicSystems.ui.R",
+        local = T,
+        encoding = "UTF-8"
+      )$value
+    ),
+    ############################################################################
+    tabItem(
       tabName = "Other_software_tools",
       source(
         file = "main/OtherSoftwareTools.ui.R",
