@@ -246,123 +246,123 @@ output$KEGG_HILIC_Fiehn_17min <- downloadHandler(
   }
 )
 #################################################################
-output$OSI_MSMLS_RP_POS_30min <- downloadHandler(
+output$MSMLS_RP_POS_30min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_RP-POS-30min.xlsx", sep="")
+    paste("MSMLS_RP-POS-30min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`RP-POS-30min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`RP-POS-30min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_RP_NEG_25min <- downloadHandler(
+output$MSMLS_RP_NEG_25min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_RP-NEG-25min.xlsx", sep="")
+    paste("MSMLS_RP-NEG-25min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`RP-NEG-25min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`RP-NEG-25min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_RP_POS_12min <- downloadHandler(
+output$MSMLS_RP_POS_12min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_RP-POS-12min.xlsx", sep="")
+    paste("MSMLS_RP-POS-12min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`RP-POS-12min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`RP-POS-12min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_RP_NEG_12min <- downloadHandler(
+output$MSMLS_RP_NEG_12min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_RP-NEG-12min.xlsx", sep="")
+    paste("MSMLS_RP-NEG-12min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`RP-NEG-12min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`RP-NEG-12min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_RP_POS_15min <- downloadHandler(
+output$MSMLS_RP_POS_15min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_RP-POS-15min.xlsx", sep="")
+    paste("MSMLS_RP-POS-15min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`RP-POS-15min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`RP-POS-15min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_RP_POS_15.5min <- downloadHandler(
+output$MSMLS_RP_POS_15.5min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_RP-POS-15.5min.xlsx", sep="")
+    paste("MSMLS_RP-POS-15.5min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`RP-POS-15.5min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`RP-POS-15.5min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_HILIC_POS_25min <- downloadHandler(
+output$MSMLS_HILIC_POS_25min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_HILIC-POS-25min.xlsx", sep="")
+    paste("MSMLS_HILIC-POS-25min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`HILIC-POS-25min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`HILIC-POS-25min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 
-output$OSI_MSMLS_HILIC_Fiehn_17min <- downloadHandler(
+output$MSMLS_HILIC_Fiehn_17min <- downloadHandler(
   filename = function() {
-    paste("OSI+MSMLS_HILIC-Fiehn-17min.xlsx", sep="")
+    paste("MSMLS_HILIC-Fiehn-17min.xlsx", sep="")
   },
   content = function(file) {
-    OSI_MSMLS_parts <- paste0(system.file("extdata/database/OSI+MSMLS", package = "MetEx"), "/",
-                              dir(system.file("extdata/database/OSI+MSMLS", package = "MetEx")))
-    for (OSI_MSMLS_parti in OSI_MSMLS_parts){
-      load(OSI_MSMLS_parti)
+    MSMLS_parts <- paste0(system.file("extdata/database/MSMLS", package = "MetEx"), "/",
+                              dir(system.file("extdata/database/MSMLS", package = "MetEx")))
+    for (MSMLS_parti in MSMLS_parts){
+      load(MSMLS_parti)
     }
-    OSI_MSMLS$tr <- MCSRT_OSI_MSMLS$`HILIC-Fiehn-17min`
-    openxlsx::write.xlsx(OSI_MSMLS[!is.na(OSI_MSMLS$tr),], file)
+    MSMLS$tr <- MCSRT_MSMLS$`HILIC-Fiehn-17min`
+    openxlsx::write.xlsx(MSMLS[!is.na(MSMLS$tr),], file)
   }
 )
 

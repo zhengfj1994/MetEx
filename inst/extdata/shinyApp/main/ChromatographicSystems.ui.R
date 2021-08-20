@@ -9,15 +9,11 @@ fluidPage(
                width = 6,
                selectInput("download.ChromatographicSystems",
                            label = h3("Which chromatographic system do you want to shown?", align = "center"),
-                           choices = list("RP_POS_30min" = "RP_POS_30min",
-                                          "RP_NEG_25min" = "RP_NEG_25min",
-                                          "RP_POS_12min" = "RP_POS_12min",
-                                          "RP_POS_12min" = "RP_POS_12min",
-                                          "RP_NEG_12min" = "RP_NEG_12min",
-                                          "RP_POS_15min" = "RP_POS_15min",
+                           choices = list("RP_POS_15min" = "RP_POS_15min",
                                           "RP_POS_15.5min" = "RP_POS_15.5min",
-                                          "HILIC_POS_25min" = "HILIC_POS_25min"),
-                           selected = "RP_POS_30min")
+                                          "HILIC_POS_25min" = "HILIC_POS_25min",
+                                          "HILIC_Fiehn_17min" = "HILIC_Fiehn_17min"),
+                           selected = "RP_POS_15min")
              ),
              box(
                width = 6,
