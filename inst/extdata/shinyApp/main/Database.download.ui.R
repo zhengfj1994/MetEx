@@ -171,13 +171,13 @@ fluidPage(
                downloadButton("MSMLS_HILIC_Fiehn_17min", "Download", width = "100%", height = "100%")
              )
            )
-  ),
-  fluidRow(id = "OSI.download.5",
-       box(
-         column(div(style="text-align:center;margin-top:0px;font-size:200%;color:darkred",
-                    HTML("~~ <em>The OSI-SMMS database is in preparation and will be open sourced in the near future.</em> ~~")),
-                align = "center", width = 12),
-         width = 12
-       )
   )
+  # fluidRow(id = "OSI.download.5",
+  #      box(
+  #        column(div(style="text-align:center;margin-top:0px;font-size:200%;color:darkred",
+  #                   HTML("~~ <em>The OSI-SMMS database is in preparation and will be open sourced in the near future.</em> ~~")),
+  #               align = "center", width = 12),
+  #        width = 12
+  #      )
+  # )
 )
