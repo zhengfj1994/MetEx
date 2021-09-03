@@ -91,7 +91,7 @@ observeEvent(input$startMetEx.3, {
         paste("result-", Sys.Date(), ".xlsx", sep="")
       },
       content = function(file) {
-        openxlsx::write.xlsx(templist, file)
+        openxlsx::write.xlsx(templist, file, overwrite = T)
       }
     )
 
@@ -100,7 +100,7 @@ observeEvent(input$startMetEx.3, {
         paste("result-", Sys.Date(), ".xlsx",sep="")
       },
       content = function(file) {
-        openxlsx::write.xlsx(res.sheet, file)
+        openxlsx::write.xlsx(res.sheet, file, overwrite = T)
       }
     )
 

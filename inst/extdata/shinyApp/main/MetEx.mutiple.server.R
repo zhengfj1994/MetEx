@@ -79,7 +79,7 @@ observeEvent(input$startMetEx.3, {
                       MS2.missing.value.padding = input$MS2.missing.value.padding.3,
                       MS2scoreFilter = input$MS2scoreFilter.3,
                       cores = input$cores.3)
-      openxlsx::write.xlsx(MetExAnnotationResList.i, file = paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i])))
+      openxlsx::write.xlsx(MetExAnnotationResList.i, file = paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i])), overwrite = T)
       print(paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", mzXML.files.3[mzXML.files.3.i])))
       MetExAnnotationResList[[grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i]]] <- MetExAnnotationResList.i
       res.sheet <- peakGroup(MetExAnnotationResList)
@@ -94,7 +94,7 @@ observeEvent(input$startMetEx.3, {
         paste("result-", Sys.Date(), ".xlsx", sep="")
       },
       content = function(file) {
-        openxlsx::write.xlsx(templist, file)
+        openxlsx::write.xlsx(templist, file, overwrite = T)
       }
     )
 
@@ -103,7 +103,7 @@ observeEvent(input$startMetEx.3, {
         paste("result-", Sys.Date(), ".xlsx",sep="")
       },
       content = function(file) {
-        openxlsx::write.xlsx(res.sheet, file)
+        openxlsx::write.xlsx(res.sheet, file, overwrite = T)
       }
     )
 

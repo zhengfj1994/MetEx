@@ -75,14 +75,14 @@ observeEvent(input$startMetEx.4, {
                                                                         cores = input$cores.4)
     # print(annotationFromPeakTableRes.list)
 
-    openxlsx::write.xlsx(annotationFromPeakTableRes.list, file = input$xlsxFile.4)
+    openxlsx::write.xlsx(annotationFromPeakTableRes.list, file = input$xlsxFile.4, overwrite = T)
 
     # output$downloadTop1Data.4 <- downloadHandler(
     #   filename = function() {
     #     paste("result-", Sys.Date(), ".xlsx", sep="")
     #   },
     #   content = function(file) {
-    #     openxlsx::write.xlsx(annotationFromPeakTableRes.list[1], file)
+    #     openxlsx::write.xlsx(annotationFromPeakTableRes.list[1], file, overwrite = T)
     #   }
     # )
     #
@@ -91,7 +91,7 @@ observeEvent(input$startMetEx.4, {
     #     paste("result-", Sys.Date(), ".xlsx",sep="")
     #   },
     #   content = function(file) {
-    #     openxlsx::write.xlsx(annotationFromPeakTableRes.list, file)
+    #     openxlsx::write.xlsx(annotationFromPeakTableRes.list, file, overwrite = T)
     #   }
     # )
 

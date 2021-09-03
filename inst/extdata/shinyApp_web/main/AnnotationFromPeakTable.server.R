@@ -80,7 +80,7 @@ observeEvent(input$startMetEx.4, {
         paste("result-", Sys.Date(), ".xlsx", sep="")
       },
       content = function(file) {
-        openxlsx::write.xlsx(annotationFromPeakTableRes.list[1], file)
+        openxlsx::write.xlsx(annotationFromPeakTableRes.list[1], file, overwrite = T)
       }
     )
 
@@ -89,7 +89,7 @@ observeEvent(input$startMetEx.4, {
         paste("result-", Sys.Date(), ".xlsx",sep="")
       },
       content = function(file) {
-        openxlsx::write.xlsx(annotationFromPeakTableRes.list, file)
+        openxlsx::write.xlsx(annotationFromPeakTableRes.list, file, overwrite = T)
       }
     )
 

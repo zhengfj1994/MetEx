@@ -74,7 +74,7 @@ observeEvent(input$startMetEx, {
                                            MS2scoreFilter = input$MS2scoreFilter,
                                            cores = input$cores)
     # print(MetExAnnotationRes[[input$download.file]])
-    openxlsx::write.xlsx(MetExAnnotationRes, file = input$xlsxFile)
+    openxlsx::write.xlsx(MetExAnnotationRes, file = input$xlsxFile, overwrite = T)
 
     observeEvent(input$download.file, {
       if (input$download.file == "all"){
@@ -85,7 +85,7 @@ observeEvent(input$startMetEx, {
             paste("result-",Sys.Date(), ".xlsx",sep="")
           },
           content = function(file) {
-            openxlsx::write.xlsx(MetExAnnotationRes, file)
+            openxlsx::write.xlsx(MetExAnnotationRes, file, overwrite = T)
           }
         )
       }

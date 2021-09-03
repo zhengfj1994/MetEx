@@ -84,7 +84,7 @@ observeEvent(input$startMetEx, {
             paste("result-",Sys.Date(), ".xlsx",sep="")
           },
           content = function(file) {
-            openxlsx::write.xlsx(MetExAnnotationRes, file)
+            openxlsx::write.xlsx(MetExAnnotationRes, file, overwrite = T)
           }
         )
       }
