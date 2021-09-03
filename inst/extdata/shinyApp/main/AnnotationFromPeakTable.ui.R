@@ -57,7 +57,7 @@ fluidPage(
            box(
              id = "Other.parameters.4",
              h3("Other parameters"),
-             # textInput("xlsxFile.4", label = "Result (.xlsx)", value = "/download/test.xlsx"),
+             textInput("xlsxFile.4", label = "Result (.xlsx)", value = "E:/test.xlsx"),
              sliderInput("cores.4", "Number of cores for parallel computing:", min = 1, max = 64, value = 1, animate = TRUE),
              actionButton(inputId = "Advance.parameters.hide.button.4", label = "Show / hide Advance parameters"),
              width = 4,
@@ -107,19 +107,19 @@ fluidPage(
     )
   ),
   fluidRow(id = "result.plot.table.4",
-           box(
-             width = 12,
-             box(
-               width = 6,
-               h3("Download the TOP 1 candidate.", align = "center"),
-               downloadButton("downloadTop1Data.4", "Download", width = "100%", height = "100%")
-             ),
-             box(
-               width = 6,
-               h3("Download the TOP 5 candidates.", align = "center"),
-               downloadButton("downloadTop5Data.4", "Download", width = "100%", height = "100%")
-             )
-           ),
+           # box(
+           #   width = 12,
+           #   box(
+           #     width = 6,
+           #     h3("Download the TOP 1 candidate.", align = "center"),
+           #     downloadButton("downloadTop1Data.4", "Download", width = "100%", height = "100%")
+           #   ),
+           #   box(
+           #     width = 6,
+           #     h3("Download the TOP 5 candidates.", align = "center"),
+           #     downloadButton("downloadTop5Data.4", "Download", width = "100%", height = "100%")
+           #   )
+           # ),
            column(width = 12,box(plotOutput("Plot.4"), width = NULL)),
            box(sliderInput("size.points.4", "The size of points:", min = 0, max = 20, value = 6, animate = TRUE),width = 12),
            column(width = 12,box(dataTableOutput("Data.4"), width = NULL))

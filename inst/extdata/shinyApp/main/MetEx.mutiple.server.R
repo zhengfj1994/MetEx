@@ -60,7 +60,7 @@ observeEvent(input$startMetEx.3, {
     MetExAnnotationResList <- list()
     for (mzXML.files.3.i in c(1:length(grep('.mzXML', dir(msRawData.MetEx), value = TRUE)))){
       packageStartupMessage(mzXML.files.3[mzXML.files.3.i])
-      MetExAnnotationResList[[grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i]]] <- MetExAnnotation(dbFile = dbFile.MetEx,
+      MetExAnnotationResList.i <- MetExAnnotation(dbFile = dbFile.MetEx,
                       ionMode = input$ionMode.3,
                       CE = input$CE.3,
                       tRCalibration = input$tRCalibration.3,
@@ -79,6 +79,9 @@ observeEvent(input$startMetEx.3, {
                       MS2.missing.value.padding = input$MS2.missing.value.padding.3,
                       MS2scoreFilter = input$MS2scoreFilter.3,
                       cores = input$cores.3)
+      openxlsx::write.xlsx(MetExAnnotationResList.i, file = paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i])))
+      print(paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", mzXML.files.3[mzXML.files.3.i])))
+      MetExAnnotationResList[[grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i]]] <- MetExAnnotationResList.i
       res.sheet <- peakGroup(MetExAnnotationResList)
     }
 

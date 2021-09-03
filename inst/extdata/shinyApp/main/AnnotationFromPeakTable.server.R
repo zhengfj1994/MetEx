@@ -75,23 +75,25 @@ observeEvent(input$startMetEx.4, {
                                                                         cores = input$cores.4)
     # print(annotationFromPeakTableRes.list)
 
-    output$downloadTop1Data.4 <- downloadHandler(
-      filename = function() {
-        paste("result-", Sys.Date(), ".xlsx", sep="")
-      },
-      content = function(file) {
-        openxlsx::write.xlsx(annotationFromPeakTableRes.list[1], file)
-      }
-    )
+    openxlsx::write.xlsx(annotationFromPeakTableRes.list, file = input$xlsxFile.4)
 
-    output$downloadTop5Data.4 <- downloadHandler(
-      filename = function() {
-        paste("result-", Sys.Date(), ".xlsx",sep="")
-      },
-      content = function(file) {
-        openxlsx::write.xlsx(annotationFromPeakTableRes.list, file)
-      }
-    )
+    # output$downloadTop1Data.4 <- downloadHandler(
+    #   filename = function() {
+    #     paste("result-", Sys.Date(), ".xlsx", sep="")
+    #   },
+    #   content = function(file) {
+    #     openxlsx::write.xlsx(annotationFromPeakTableRes.list[1], file)
+    #   }
+    # )
+    #
+    # output$downloadTop5Data.4 <- downloadHandler(
+    #   filename = function() {
+    #     paste("result-", Sys.Date(), ".xlsx",sep="")
+    #   },
+    #   content = function(file) {
+    #     openxlsx::write.xlsx(annotationFromPeakTableRes.list, file)
+    #   }
+    # )
 
     data.4 <- annotationFromPeakTableRes.list[[1]]
     data.4 <- data.4[!is.na(data.4$score),]

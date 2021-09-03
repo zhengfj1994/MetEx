@@ -130,9 +130,11 @@ fluidPage(
                </ol>
                <h3 >	7.1.6 Other parameters</h3>
                <ol>
-               <h3 >		7.1.6.1 Number of cores for parallel computing</h3>
+               <h3 >		7.1.6.1 Result (xlsx file)</h3>
+               <p>		Result (xlsx file) is the path of the result file. It is only available in the offline version. The full path is required, separated by / instead of  \\. For example: E:/MetEx/result.xlsx</p>
+               <h3 >		7.1.6.2 Number of cores for parallel computing</h3>
                <p>		The number of CPU cores for parallel computing, it is depend on your computer&#39;s CPU and RAM. Users can refer to the following rules: The number of cores for parallel computing &lt; The number of CPU cores of your computer &amp; The number of cores for parallel computing × 4 GB &lt; The RAM of you computer</p>
-               <h3 >		7.1.6.2 show/hide Advance parameters</h3>
+               <h3 >		7.1.6.3 show/hide Advance parameters</h3>
                </ol>
                <h3 >	7.1.7 Advance parameters</h3>
                <ol>
@@ -159,6 +161,7 @@ fluidPage(
           HTML("
                <ol>
                <h3 >7.3 Download result</h3>
+               <p>Note: In the offline standalone program, you don't need to download, just check it directly in the set result file path.</p>
                </ol>
                ")),
       column(img(src = "Download_result.png", align = "center", width = "85%"), align = "center", width = 12),
@@ -172,10 +175,11 @@ fluidPage(
                <p>Below we will introduce MetEx (Mutiple file): Use MetEx to annotate mutiple LC-MS files.</p>
                <ol>
                <h3 >8.1  Parameters</h3>
-               <p>Except for the different parameters in the &#39;LC-MS data import&#39; part, other parameters are the same as MetEx (Single file) The &#39;mzXML file path&#39; is a file folder in your computer which save mzXML files and the &#39;mgf file path&#39; is a file folder in your computer which save mgf files.</p>
+               <p>Except for the different parameters in the &#39;LC-MS data import&#39; part and &#39;Result (xlsx file) path&#39;, other parameters are the same as MetEx (Single file). The &#39;mzXML file path&#39; is a file folder in your computer which save mzXML files and the &#39;mgf file path&#39; is a file folder in your computer which save mgf files. Result (xlsx file) path is a path of a folder to save result files, for example, E:/MetEx/Result. And it is only available in the version of sffline standalone program.</p>
                <h3 >8.2 Run MetEx</h3>
                <p>Click the run button to start running</p>
                <h3 >8.3 Download result</h3>
+               <p>Note: In the offline standalone program, you don't need to download, just check it directly in the set result file path.</p>
                </ol>
                <p>&nbsp;</p>
                <h3 >9. Classic annotation</h3>
@@ -211,6 +215,7 @@ fluidPage(
                <h3 >9.2 Run MetEx</h3>
                <p>Click the run button to start running.</p>
                <h3 >9.3 Download result</h3>
+               <p>Note: In the offline standalone program, you don't need to download, just check it directly in the set result file path.</p>
                </ol>
                <p>&nbsp;</p>
                <h2 >How to use the web server?</h2>

@@ -74,6 +74,7 @@ observeEvent(input$startMetEx, {
                                            MS2scoreFilter = input$MS2scoreFilter,
                                            cores = input$cores)
     # print(MetExAnnotationRes[[input$download.file]])
+    openxlsx::write.xlsx(MetExAnnotationRes, file = input$xlsxFile)
 
     observeEvent(input$download.file, {
       if (input$download.file == "all"){

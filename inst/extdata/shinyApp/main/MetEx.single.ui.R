@@ -60,7 +60,7 @@ fluidPage(
              id = "Other.parameters",
              h3("Other parameters"),
              # textInput("csvFile", label = "Result (csv file)", value = "/download/test.csv"),
-             # textInput("xlsxFile", label = "Result (xlsx file)", value = "/download/test.xlsx"),
+             textInput("xlsxFile", label = "Result (xlsx file)", value = "E:/test.xlsx"),
              sliderInput("cores", "Number of cores for parallel computing:", min = 1, max = 64, value = 1, animate = TRUE),
              actionButton(inputId = "Advance.parameters.hide.button", label = "show / hide Advance parameters"),
              width = 4,
