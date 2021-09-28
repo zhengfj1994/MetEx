@@ -44,9 +44,9 @@ ms2Score <- function(ms2Act, ms2DB, ms2DeltaMZ, sn.threshold = 3, noise.intensit
 
   ###################################################
   if (length(which.min(ms2DB$intensity)) > 5){
-    ms2ActNormalization <- ms2DB[which(ms2DB$intensity > sn.threshold * noise.intensity), ]
+    ms2DBNormalization <- ms2DB[which(ms2DB$intensity > sn.threshold * noise.intensity), ]
     if (nrow(ms2DBNormalization) == 0){
-      ms2ActNormalization <- ms2Act[0,]
+      ms2DBNormalization <- ms2Act[0,]
     }
     else {
       ms2DBNormalization[,2] <- ms2DBNormalization[,2]/max(ms2DBNormalization[,2])
