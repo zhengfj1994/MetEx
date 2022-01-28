@@ -75,6 +75,15 @@ body <- dashboardBody(
     ),
     ############################################################################
     tabItem(
+      tabName = "Demo_data",
+      source(
+        file = "main/Demo.data.ui.R",
+        local = T,
+        encoding = "UTF-8"
+      )$value
+    ),
+    ############################################################################
+    tabItem(
       tabName = "Chromatographic_systems",
       source(
         file = "main/ChromatographicSystems.ui.R",

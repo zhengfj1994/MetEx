@@ -19,6 +19,7 @@ shinyUI(
         menuItem("MetEx (Mutiple file)", tabName = "MetEx_M", icon = icon("chart-pie")),
         menuItem("Classic annotation", tabName = "MetEx_P", icon = icon("file-csv")),
         menuItem("Databases", tabName = "Database_download", icon = icon("download")),
+        menuItem("Demo data", tabName = "Demo_data", icon = icon("download")),
         menuItem("Chromatographic systems", tabName = "Chromatographic_systems", icon = icon("file-signature")),
         menuItem("Other software tools", tabName = "Other_software_tools", icon = icon("arrows-alt")),
         menuItem("Help document", tabName = "Help", icon = icon("hands-helping")),
