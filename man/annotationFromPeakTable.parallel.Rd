@@ -23,7 +23,7 @@ annotationFromPeakTable.parallel(
   MS1MS2DeltaMZ,
   MS2DeltaMZ,
   scoreMode = "average",
-  cores
+  cores = 1
 )
 }
 \arguments{

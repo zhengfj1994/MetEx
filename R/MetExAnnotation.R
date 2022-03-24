@@ -67,7 +67,7 @@ MetExAnnotation <- function(dbFile,
   if (tRCalibration == T){
     dbData <- retentionTimeCalibration(is.tR.file = is.tR.file, database.df = dbData)
   }
-  targExtracRes <- targetExtraction.parallel(msRawData = msRawData, dbData, deltaMZ = MS1deltaMZ, deltaTR = MS1deltaTR, cores = cores)
+  targExtracRes <- targetExtraction.optimized(msRawData = msRawData, dbData, deltaMZ = MS1deltaMZ, deltaTR = MS1deltaTR)
   ms1Info <- extracResFilter(targExtracRes, entroThre = entroThre, intThre = intThre, classficationMethod = classficationMethod)
   mgfList <- importMgf(mgfFile = mgfFile)
   batchMS2ScoreResult <- batchMS2Score.parallel(ms1Info, ms1DeltaMZ = MS1MS2DeltaMZ, ms2DeltaMZ = MS2DeltaMZ, deltaTR = MS1MS2DeltaTR, mgfMatrix = mgfList$mgfMatrix, mgfData = mgfList$mgfData, MS2.sn.threshold = MS2.sn.threshold, MS2.noise.intensity = MS2.noise.intensity, MS2.missing.value.padding = MS2.missing.value.padding, scoreMode = scoreMode, cores = cores)

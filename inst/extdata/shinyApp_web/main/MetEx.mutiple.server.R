@@ -34,7 +34,7 @@ observeEvent(input$startMetEx.3, {
   withCallingHandlers({
     shinyjs::html("text.3", "")
     if (length(input$db.path.3$datapath)==0){
-      dbFile.MetEx <- system.file("extdata/database", "MetEx_OSI+MSMLS.xlsx", package = "MetEx")
+      dbFile.MetEx <- system.file("extdata/database", "MetEx_MSMLS.xlsx", package = "MetEx")
     }
     else {
       dbFile.MetEx <- input$db.path.3$datapath
@@ -105,7 +105,7 @@ observeEvent(input$startMetEx.3, {
     )
 
     # data.3$trOfPeak <- round(as.numeric(data.3$trOfPeak), 2)
-    res.sheet$peakArea$`m/z` <- round(res.sheet$peakArea$`m/z`, 4)
+    res.sheet$peakArea$m.z <- round(res.sheet$peakArea$m.z, 4)
     # data.3$peakHeight <- round(data.3$peakHeight, 0)
     # data.3$entropy <- round(data.3$entropy, 3)
     # data.3$DP <- round(data.3$DP, 3)
@@ -115,7 +115,7 @@ observeEvent(input$startMetEx.3, {
     # data.3$score <- round(as.numeric(data.3$score), 3)
     pos.data.3 = which(colnames(res.sheet$peakArea) != "Name" &
                          colnames(res.sheet$peakArea) != "tr" &
-                         colnames(res.sheet$peakArea) != "m/z" &
+                         colnames(res.sheet$peakArea) != "m.z" &
                          colnames(res.sheet$peakArea) != "ionMode" &
                          colnames(res.sheet$peakArea) != "CE")
     # colnames(data.3) != "trOfPeak" &
@@ -127,7 +127,7 @@ observeEvent(input$startMetEx.3, {
     # colnames(data.3) != "score")
 
     # output$Plot.3 <- renderPlot({
-    #   ggplot(data.3, aes(x=tr,y=`m/z`))+
+    #   ggplot(data.3, aes(x=tr,y=m.z))+
     #     # geom_point(aes(size=peakHeight,fill=entropy),shape=21,colour="black",alpha=0.8)+
     #     # scale_fill_gradient2(low="#377EB8",high="#E41A1C",midpoint = mean(data.3$entropy))+
     #     # scale_size_area(max_size=input$size.points.3)+

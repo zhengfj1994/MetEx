@@ -27,13 +27,14 @@ peakDectAndEntroCal <- function(eicData,
     maxTRandEntropy <- entropyCalculator(eicData)
     extractedPeaks[1,]=NA
     extractedPeaks$trOfPeak[1] <- maxTRandEntropy[,'maxTR']
-    fitted_curve <- fitCurve(eicData[,1], eicData[,2], curveModel='emgGaussian', params='guess')
-    pred_y  <- predictCurve(fitted_curve, eicData[,1])
+    # fitted_curve <- fitCurve(eicData[,1], eicData[,2], curveModel='emgGaussian', params='guess')
+    # pred_y  <- predictCurve(fitted_curve, eicData[,1])
     # plot(eicData)
     # lines(x = eicData[,1], y = pred_y, col = "red")
 
     extractedPeaks$peakHeight[1] <- max(eicData[,2])
-    extractedPeaks$peakArea[1] <- areaIntegrator(l1 = list(x = eicData[,1]), l2 = list(y = pred_y), left = eicData[1,1], right = eicData[nrow(eicData),1], integrationType = "simpson", baselineType = "base_to_base", fitEMG = F, baseSubtraction = T)
+    # extractedPeaks$peakArea[1] <- areaIntegrator(l1 = list(x = eicData[,1]), l2 = list(y = pred_y), left = eicData[1,1], right = eicData[nrow(eicData),1], integrationType = "simpson", baselineType = "base_to_base", fitEMG = F, baseSubtraction = T)
+    extractedPeaks$peakArea[1] <- NA
     if (max(eicData[,2]) != 0){
       extractedPeaks$entropy[1] <- entropyCalculator(eicData[which(eicData[,1] > (extractedPeaks$trOfPeak[1]-trRange/2) & eicData[,1] < (extractedPeaks$trOfPeak[1]+trRange/2)),])[,'entropyScore']
     }
@@ -43,22 +44,24 @@ peakDectAndEntroCal <- function(eicData,
 
   }
   else if (nrow(extractedPeaks)==1){
-    fitted_curve <- fitCurve(eicData[,1], eicData[,2], curveModel='emgGaussian', params='guess')
-    pred_y  <- predictCurve(fitted_curve, eicData[,1])
+    # fitted_curve <- fitCurve(eicData[,1], eicData[,2], curveModel='emgGaussian', params='guess')
+    # pred_y  <- predictCurve(fitted_curve, eicData[,1])
     # plot(eicData)
     # lines(x = eicData[,1], y = pred_y, col = "red")
-    extractedPeaks$peakArea[1] <- areaIntegrator(l1 = list(x = eicData[,1]), l2 = list(y = pred_y), left = eicData[1,1], right = eicData[nrow(eicData),1], integrationType = "simpson", baselineType = "base_to_base", fitEMG = F, baseSubtraction = T)
+    # extractedPeaks$peakArea[1] <- areaIntegrator(l1 = list(x = eicData[,1]), l2 = list(y = pred_y), left = eicData[1,1], right = eicData[nrow(eicData),1], integrationType = "simpson", baselineType = "base_to_base", fitEMG = F, baseSubtraction = T)
+    extractedPeaks$peakArea[1] <- NA
 
     maxTRandEntropy <- entropyCalculator(eicData[which(eicData[,1] > (extractedPeaks$trOfPeak[1]-trRange/2) & eicData[,1] < (extractedPeaks$trOfPeak[1]+trRange/2)),])
     extractedPeaks$entropy[1] <- maxTRandEntropy[,'entropyScore']
   }
   else{
     for (i in c(1:nrow(extractedPeaks))){
-      fitted_curve <- fitCurve(eicData[,1], eicData[,2], curveModel='emgGaussian', params='guess')
-      pred_y  <- predictCurve(fitted_curve, eicData[,1])
+      # fitted_curve <- fitCurve(eicData[,1], eicData[,2], curveModel='emgGaussian', params='guess')
+      # pred_y  <- predictCurve(fitted_curve, eicData[,1])
       # plot(eicData)
       # lines(x = eicData[,1], y = pred_y, col = "red")
-      extractedPeaks$peakArea[i] <- areaIntegrator(l1 = list(x = eicData[,1]), l2 = list(y = pred_y), left = eicData[1,1], right = eicData[nrow(eicData),1], integrationType = "simpson", baselineType = "base_to_base", fitEMG = F, baseSubtraction = T)
+      # extractedPeaks$peakArea[i] <- areaIntegrator(l1 = list(x = eicData[,1]), l2 = list(y = pred_y), left = eicData[1,1], right = eicData[nrow(eicData),1], integrationType = "simpson", baselineType = "base_to_base", fitEMG = F, baseSubtraction = T)
+      extractedPeaks$peakArea[i] <- NA
 
       maxTRandEntropy <- entropyCalculator(eicData[which(eicData[,1] > (extractedPeaks$trOfPeak[i]-trRange/2) & eicData[,1] < (extractedPeaks$trOfPeak[i]+trRange/2)),])
       extractedPeaks$entropy[i] <- maxTRandEntropy[,'entropyScore']

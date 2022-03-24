@@ -21,7 +21,7 @@ peakGroup <- function(MetExAnnotationResList){
 
   library(purrr)
   allData <- map_dfr(set_names(templist), bind_rows, .id = NULL)
-  allDataUnique <- distinct(allData, Name, SMILES,`m/z`,tr, .keep_all = TRUE)
+  allDataUnique <- distinct(allData, Name, SMILES, m.z, tr, .keep_all = TRUE)
   mergeData <- subset(allDataUnique, select = -c(trOfPeak,entropy,peakHeight,peakArea,score,MSMS,MSMS.Exp,DP,RDP,frag.ratio))
 
   trOfPeak.df <- as.data.frame(mergeData)
@@ -42,7 +42,7 @@ peakGroup <- function(MetExAnnotationResList){
     for (j in c(1:nrow(mergeData))){
       x.position <- which(templist[[i]]$Name == mergeData$Name[j] &
                             templist[[i]]$SMILES == mergeData$SMILES[j] &
-                            templist[[i]]$`m/z` == mergeData$`m/z`[j] &
+                            templist[[i]]$m.z == mergeData$m.z[j] &
                             templist[[i]]$tr == mergeData$tr[j])
       if (length(x.position) == 1){
         trOfPeak.df[j,i] <- templist[[i]]$trOfPeak[x.position]

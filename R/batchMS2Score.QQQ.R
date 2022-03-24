@@ -44,7 +44,7 @@ batchMS2Score.QQQ <- function(ms1Info,
     info<- sprintf("Rate of progress %d%%", round(i*100/nrow(ms1Info)))
     setTkProgressBar(pb, i*100/nrow(ms1Info), sprintf("batchMS2Score (%s)", info),info)
 
-    mzi <- ms1Info$'m/z'[i]
+    mzi <- ms1Info$m.z[i]
     tri <- ms1Info$trOfPeak[i]
     ms2ActInRaw <- ms1ms2Match(mzi,tri,ms1DeltaMZ,deltaTR,mgfMatrix,mgfData,ms2Mode = 'ida',diaMethod = "NA")
     if (length(ms2ActInRaw) == 0){

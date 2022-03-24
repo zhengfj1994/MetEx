@@ -34,7 +34,7 @@ observeEvent(input$startMetEx.4, {
   withCallingHandlers({
     shinyjs::html("text.4", "")
     if (length(input$db.path.4$datapath)==0){
-      dbFile.MetEx <- system.file("extdata/database", "MetEx_OSI+MSMLS.xlsx", package = "MetEx")
+      dbFile.MetEx <- system.file("extdata/database", "MetEx_MSMLS.xlsx", package = "MetEx")
     }
     else {
       dbFile.MetEx <- input$db.path.4$datapath

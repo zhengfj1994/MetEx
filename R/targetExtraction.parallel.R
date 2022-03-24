@@ -73,18 +73,15 @@ targetExtraction.parallel <- function(msRawData,
     else{
       mzRange <- c(mzi-deltaMZ/2, mzi+deltaMZ/2)
 
-      if (tri-deltaTR/2 >= rawData@scantime[length(rawData@scantime)]){
+      if (tri-deltaTR/2 >= rawData@scantime[length(rawData@scantime)] | tri+deltaTR/2 <= rawData@scantime[1]){
         dfExtractedPeaks[1,1:4] <- 'Out of range'
         targExtracResi <- cbind(dbData[i,],dfExtractedPeaks)
       }
       else {
-        if (tri-deltaTR/2 < rawData@scantime[1] & tri+deltaTR/2 > rawData@scantime[1]){
-          EICtrRange <- c(rawData@scantime[1], rawData@scantime[length(rawData@scantime)])
-        }
-        else if (tri-deltaTR/2 < rawData@scantime[1]){
+        if (tri-deltaTR/2 <= rawData@scantime[1]){
           EICtrRange <- c(rawData@scantime[1], tri+deltaTR/2)
         }
-        else if (tri+deltaTR/2 > rawData@scantime[length(rawData@scantime)] & tri-deltaTR/2 < rawData@scantime[length(rawData@scantime)]){
+        else if (tri+deltaTR/2 >= rawData@scantime[length(rawData@scantime)]){
           EICtrRange <- c(tri-deltaTR/2, rawData@scantime[length(rawData@scantime)])
         }
         else{

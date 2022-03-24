@@ -89,7 +89,7 @@ batchMS2Score.parallel <- function(ms1Info,
     ms2DB <- list2dataframe(ms2DB)
     ms2DB <- na.omit(ms2DB)
 
-    mzi <- ms1Info$'m/z'[i]
+    mzi <- ms1Info$m.z[i]
     tri <- ms1Info$trOfPeak[i]
 
     ms2DB <- ms2DB[which(ms2DB[,1] < (mzi+ms2DeltaMZ)),]
