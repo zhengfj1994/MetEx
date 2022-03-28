@@ -7,9 +7,6 @@
 #' @export peakGroup
 #' @importFrom purrr map_dfr
 #'
-#' @examples
-#' load(system.file("extdata/testData","MetExAnnotationResList.Rda", package = "MetEx"))
-#' res.sheet <- peakGroup(MetExAnnotationResList)
 
 peakGroup <- function(MetExAnnotationResList){
   MetExAnnotationResList

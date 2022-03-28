@@ -11,8 +11,7 @@ Imports: stats,
          doSNOW,
          stringr, 
          xcms, 
-         do, 
-         KEGGREST,
+         do,
          XML,
          progress,
          shinydashboard,
@@ -26,17 +25,13 @@ Imports: stats,
          snow,
          tidyr,
          Rcpp,
-         DIAlignR,
-         minpack.lm,
          purrr,
          rlang,
-         peakPantheR
 Suggests: BiocManager,
           knitr,
           shiny,
           ggplot2,
-          RColorBrewer,
-          fffprocessr
+          RColorBrewer
 Description: When we have untargeted metabolomics data. The first step is peak detection by some software. Some features maybe lost in this process.
              So we want to use targeted extraction from untargeted metabolomics dataset by using metabolomics database to find some feature which can't find in peak detection.
 License: MIT + file LICENSE

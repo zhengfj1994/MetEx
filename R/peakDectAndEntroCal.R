@@ -6,7 +6,6 @@
 #' @param m parameter of peak detection.
 #'
 #' @importFrom stats na.omit
-#' @import DIAlignR
 #' @import dplyr
 #' @return extractedPeaks
 #' @export peakDectAndEntroCal
@@ -21,7 +20,6 @@ peakDectAndEntroCal <- function(eicData,
                                 trRange,
                                 m = 200){
   # require(dplyr)
-  # require(DIAlignR)
   extractedPeaks <- as.data.frame(peakDetection(eicData,m))
   if (nrow(extractedPeaks)==0){
     maxTRandEntropy <- entropyCalculator(eicData)

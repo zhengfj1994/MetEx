@@ -28,7 +28,7 @@
 #' @importFrom utils write.table
 #'
 #' @examples
-#' MetExAnnotationRes <- MetExAnnotation(dbFile = system.file("extdata/database","MetEx_OSI+MSMLS.xlsx", package = "MetEx"),
+#' MetExAnnotationRes <- MetExAnnotation(dbFile = system.file("extdata/database","MetEx_MSMLS.xlsx", package = "MetEx"),
 #'                 ionMode = "P",
 #'                 CE = "all",
 #'                 msRawData = system.file("extdata/mzXML","example.mzXML", package = "MetEx"),

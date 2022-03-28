@@ -23,7 +23,7 @@ Import metabolomics database which saved in xlsx file and screen the database by
 }
 \examples{
 dbData <- dbImporter(
-          dbFile=system.file("extdata/database", "MetEx_OSI+MSMLS.xlsx", package = "MetEx"),
+          dbFile=system.file("extdata/database", "MetEx_MSMLS.xlsx", package = "MetEx"),
           ionMode='P',
           CE="all")
 }

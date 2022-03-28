@@ -17,7 +17,3 @@ res.sheet
 Title
 Peak Group
 }
-\examples{
-load(system.file("extdata/testData","MetExAnnotationResList.Rda", package = "MetEx"))
-res.sheet <- peakGroup(MetExAnnotationResList)
-}

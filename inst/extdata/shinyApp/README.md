@@ -12,7 +12,7 @@ MetEx
 ## Introduction
 Liquid chromatography–high resolution mass spectrometry (LC-HRMS) is the most popular platform for untargeted metabolomics methods, but annotating LC-HRMS data is a long-standing bottleneck that we are facing since years ago in metabolomics research. A wide variety of methods have been established to deal with the annotation issue. To date, however, there is a scarcity of efficient, systematic, and easy-to-handle tools that are tailored for metabolomics community. So we developed a user-friendly and powerful software/webserver, MetEx, to both enable implementation of classical peak detection-based annotation and a new annotation method based on targeted extraction algorithms. The new annotation method based on targeted extraction algorithms can annotate more than 2 times metabolites than classical peak detection-based annotation method because it reduces the loss of metabolite signal in the data preprocessing process. MetEx is freely available at http://www.metaboex.cn/MetEx and https://sourceforge.net/projects/metex (webserver and offline standalone program), the source code is available at https://github.com/zhengfj1994/MetEx.
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Workflow-of-MetEx.png"/></div>
+<div align=center><img width="800" src="The_workflow_of_MetEx.png"/></div>
 <h4 align="center">
 Figure 1. The workflow of MetEx
 </h4>
@@ -34,14 +34,14 @@ We first recommend using offline standalone program.
 
 Please download MetExApp.zip on SourceForge https://sourceforge.net/projects/metex
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Download_MetExApp.png"/></div>
+<div align=center><img width="800" src="Download_MetExApp.png"/></div>
 <h4 align="center">
 Figure 2. Download MetExApp from SourceForge
 </h4>
 
 ### 2. Unzip MetExApp.zip.
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Unzipped_MetExApp.png"/></div>
+<div align=center><img width="800" src="Unzipped_MetExApp.png"/></div>
 <h4 align="center">
 Figure 3. Unzipped MetExApp
 </h4>
@@ -58,7 +58,7 @@ There is a file named MetEx.vbs in the unzipped folder. Double-click MetEx.vbs. 
 
 Then you can see the MetEx is opened in your default browser.
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Page_MetEx.png"/></div>
+<div align=center><img width="800" src="Page_MetEx.png"/></div>
 <h4 align="center">
 Figure 4. MetExApp opened in web browser
 </h4>
@@ -99,7 +99,7 @@ On the page of MetEx (Single file), you can see that there are some parameters t
 
 ​		a xlsx file, which contain the retention time of internal standards in database and experiment. It should be looked like Figure below.
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/IS-for-tR-calibration.png"/></div>
+<div align=center><img width="800" src="IS-for-tR-calibration.png"/></div>
 <h4 align="center">
 Figure 5. A xlsx file containing retention times of internal standard which used for retention time calibration
 </h4>
@@ -176,7 +176,7 @@ Figure 5. A xlsx file containing retention times of internal standard which used
 
 Click the run button to start running.
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Run_MetEx.png"/></div>
+<div align=center><img width="800" src="Run_MetEx.png"/></div>
 <h4 align="center">
 Figure 6. Run MetEx
 </h4>
@@ -184,7 +184,7 @@ Figure 6. Run MetEx
 
 #### 7.3 Download result
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Download_result.png"/></div>
+<div align=center><img width="800" src="Download_result.png"/></div>
 <h4 align="center">
 Figure 7. Download result
 </h4>
@@ -266,7 +266,7 @@ Click the run button to start running.
 
 web server http://www.metaboex.cn/MetEx
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Webserver_MetEx.png"/></div>
+<div align=center><img width="800" src="Webserver_MetEx.png"/></div>
 <h4 align="center">
 Figure 8. Web server of MetEx
 </h4>
@@ -319,12 +319,12 @@ devtools::install_github('zhengfj1994/MetEx')
 
 If the third step fails to install, users can download the project and install offline as shown below:  
 
-<div align=center><img width="600" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Offline-install-1.png"/></div>
+<div align=center><img width="600" src="Offline-install-1.png"/></div>
 <h4 align="center">
 Figure 9. Download the MetEx package from github.
 </h4>
 
-<div align=center><img width="600" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Offline-install-2.png"/></div>
+<div align=center><img width="600" src="Offline-install-2.png"/></div>
 <h4 align="center">
 Figure 10. Download the MetEx package from github(2).
 </h4>		
@@ -332,7 +332,7 @@ Figure 10. Download the MetEx package from github(2).
 
 Then, in Rstudio, choose Packages —— Install:  
 
-<div align=center><img width="600" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Offline-install-3.png"/></div>
+<div align=center><img width="600" src="Offline-install-3.png"/></div>
 <h4 align="center">
 Figure 11. Package intallation in Rstudio
 </h4>
@@ -340,7 +340,7 @@ Figure 11. Package intallation in Rstudio
 
 Finally, choose install from Package Archive File (.zip; .tar.gz), and select the MetEx package, click install.
 
-<div align=center><img width="350" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Offline-install-4.png"/></div>  
+<div align=center><img width="350" src="Offline-install-4.png"/></div>  
 <h4 align="center">
 Figure 12. Choose the MetEx-master.zip and install.
 </h4>
@@ -364,7 +364,7 @@ shiny::runApp(system.file("extdata/shinyApp", package = "MetEx"))
 
 Then you can run shinyApp in Rstudio.
 
-<div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Screen-shot-of-Shiny-App.png"/></div>  
+<div align=center><img width="800" src="Screen-shot-of-Shiny-App.png"/></div>  
 <h4 align="center">
 Figure 13. Screen shot of Shiny App.
 </h4>
@@ -838,7 +838,7 @@ MetEx dependent the following packages, If you find that the installation fails 
     
     - Other information is not mandatory, and users can add it as they see fit.  We have gave an example of database in data.
     
-      <div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/example-of-database.png"/></div>  
+      <div align=center><img width="800" src="example-of-database.png"/></div>  
       <h4 align="center">
       Figure 13. An example of database.
       </h4>

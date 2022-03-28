@@ -75,7 +75,7 @@ Title
 annotationFromPeakTableRes <- annotationFromPeakTable.parallel(
      peakTable = system.file("extdata/peakTable","example.csv", package = "MetEx"),
      mgfFile = system.file("extdata/mgf","example.mgf", package = "MetEx"),
-     database = system.file("extdata/database","MetExDB_KEGG.xlsx", package = "MetEx"),
+     database = system.file("extdata/database","MetEx_MSMLS.xlsx", package = "MetEx"),
      ionMode = "P",
      MS1DeltaMZ = 0.01,
      MS1DeltaTR = 120,

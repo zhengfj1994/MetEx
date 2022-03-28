@@ -68,6 +68,7 @@ targetExtraction.optimized <- function(msRawData,
 
   packageStartupMessage("The extraction will take some time, depending on how many compounds are extracted and the size of the original data, please be patient.")
   EICdata <- getEIC(rawData, mzrange = mzRanges, rtrange = rtRanges)
+  # EICdata <- rawEIC(rawData, mzrange = mzRanges, rtrange = rtRanges)
 
   EICdataEIC <- EICdata@eic$xcmsRaw
   EICdataEIC <- EICdataEIC[mergeData$uniqueID]

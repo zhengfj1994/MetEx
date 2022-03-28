@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' dbData <- dbImporter(
-#'           dbFile=system.file("extdata/database", "MetEx_OSI+MSMLS.xlsx", package = "MetEx"),
+#'           dbFile=system.file("extdata/database", "MetEx_MSMLS.xlsx", package = "MetEx"),
 #'           ionMode='P',
 #'           CE="all")
 dbImporter <- function(dbFile,
