@@ -27,6 +27,7 @@ Imports: stats,
          Rcpp,
          purrr,
          rlang,
+         markdown
 Suggests: BiocManager,
           knitr,
           shiny,
