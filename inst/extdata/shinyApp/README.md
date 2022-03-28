@@ -309,7 +309,7 @@ if(!require(devtools)){
 if(!require(BiocManager)){
 	install.packages("BiocManager")
 }
-BiocManager::install("xcms"), update = TRUE, ask = FALSE)
+BiocManager::install("xcms")
 devtools::install_github('zhengfj1994/MetEx')
 ```
 
