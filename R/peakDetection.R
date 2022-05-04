@@ -31,5 +31,6 @@ peakDetection <- function(eicData,
   peak_detection_result <- find_peaks(eicData[,2], m)
   extractedPeaks <- as.data.frame(cbind(as.matrix(eicData[,1][peak_detection_result]), as.matrix(eicData[,2][peak_detection_result])))
   colnames(extractedPeaks) <- c("trOfPeak","peakHeight")
+  ## return result
   return(extractedPeaks)
 }

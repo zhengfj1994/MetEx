@@ -69,11 +69,17 @@ fluidPage(
            box(
              id = "Advance.parameters.3",
              h3("Advance parameters"),
-             numericInput(inputId = "MS2.sn.threshold.3", label = "MS2 S/N threshold", value = 3),
-             textInput("MS2.noise.intensity.3", label = "MS2 noise intensity", value = "minimum"),
-             selectInput("MS2.missing.value.padding.3", label = "MS2 missing value padding method",
-                         choices = list("half" = "half", "minimal" = "minimal.value"),
-                         selected = "minimal.value"),
+             selectInput("NeedCleanSpectra.3", label = "Do you want to clean MS2?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
+             numericInput(inputId = "MS2NoiseRemoval.3", label = "MS2 noise removel threshold", value = 0.01),
+             selectInput("onlyKeepMax.3", label = "Do you want to only keep the matched result with biggest score?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
+             numericInput(inputId = "minScore.3", label = "If you don't want to keep only one result for each feature, the above parameters should be selected as No and set a value of the min score which you want to keep.", value = 0.5),
+             selectInput("KeepNotMatched.3", label = "Do you want to only keep matched result?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
              width = 12
            ),
 
@@ -108,24 +114,24 @@ fluidPage(
       width = 4,
       height = 400
     )
-  ),
-  fluidRow(id = "result.plot.table.3",
-           # column(width = 12,box(plotOutput("Plot.3"), width = NULL)),
-
-           box(
-             width = 12,
-             box(
-               width = 6,
-               h3("Download data before peak group.", align = "center"),
-               downloadButton("downloadRawData.3", "Download", width = "100%", height = "100%")
-             ),
-             box(
-               width = 6,
-               h3("Download data after peak group.", align = "center"),
-               downloadButton("downloadGroupedData.3", "Download", width = "100%", height = "100%")
-             )
-           ),
-
-           column(width = 12,box(dataTableOutput("Data.3"), width = NULL))
   )
+  # fluidRow(id = "result.plot.table.3",
+  #          # column(width = 12,box(plotOutput("Plot.3"), width = NULL)),
+  #
+  #          box(
+  #            width = 12,
+  #            box(
+  #              width = 6,
+  #              h3("Download data before peak group.", align = "center"),
+  #              downloadButton("downloadRawData.3", "Download", width = "100%", height = "100%")
+  #            ),
+  #            box(
+  #              width = 6,
+  #              h3("Download data after peak group.", align = "center"),
+  #              downloadButton("downloadGroupedData.3", "Download", width = "100%", height = "100%")
+  #            )
+  #          ),
+  #
+  #          column(width = 12,box(dataTableOutput("Data.3"), width = NULL))
+  # )
 )

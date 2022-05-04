@@ -19,7 +19,3 @@ sheets
 Title
 Filter identified Result
 }
-\examples{
-load(system.file("extdata/testData", "batchMS2ScoreResult.Rda", package = "MetEx"))
-filteredres <- identifiedResFilter(batchMS2ScoreResult = batchMS2ScoreResult, MS2score = 0.6)
-}

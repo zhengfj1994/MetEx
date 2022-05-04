@@ -47,35 +47,35 @@ observeEvent(input$startMetEx.4, {
       MS1.peak.table.MetEx <- input$MS1.peak.table.4$datapath
     }
 
-    if (length(input$mgfFile.4$datapath)==0){
-      mgfFile.MetEx <- system.file("extdata/mgf", "example.mgf", package = "MetEx")
+    if (input$mgfFile.4==""){
+      mgfFile.MetEx <- system.file("extdata/mgf", package = "MetEx")
     }
     else {
-      mgfFile.MetEx <- input$mgfFile.4$datapath
+      mgfFile.MetEx <- input$mgfFile.4
     }
 
-    annotationFromPeakTableRes.list <- annotationFromPeakTable.parallel(peakTable = MS1.peak.table.MetEx,
-                                                                        mgfFile = mgfFile.MetEx,
-                                                                        database = dbFile.MetEx,
-                                                                        ionMode = input$ionMode.4,
-                                                                        CE = input$CE.4,
-                                                                        tRCalibration = input$tRCalibration.4,
-                                                                        is.tR.file = input$is.tR.file.4$datapath,
-                                                                        MS1DeltaMZ = input$MS1deltaMZ.4,
-                                                                        MS1DeltaTR = input$MS1deltaTR.4,
-                                                                        MS2.sn.threshold = input$MS2.sn.threshold.4,
-                                                                        MS2.noise.intensity = input$MS2.noise.intensity.4,
-                                                                        MS2.missing.value.padding = input$MS2.missing.value.padding.4,
-                                                                        ms2Mode = 'ida',
-                                                                        diaMethod = 'NA',
-                                                                        MS1MS2DeltaTR = input$MS1MS2DeltaTR.4,
-                                                                        MS1MS2DeltaMZ = input$MS1MS2DeltaMZ.4,
-                                                                        MS2DeltaMZ = input$MS2DeltaMZ.4,
-                                                                        scoreMode = 'average',
-                                                                        cores = input$cores.4)
-    # print(annotationFromPeakTableRes.list)
+    ClassicalAnnotationResult <- ClassicalAnnotation(peakTable = MS1.peak.table.MetEx,
+                                                     mgfFilePath = mgfFile.MetEx,
+                                                     database = dbFile.MetEx,
+                                                     ionMode = input$ionMode.4,
+                                                     CE = input$CE.4,
+                                                     tRCalibration = input$tRCalibration.4,
+                                                     is.tR.file = input$is.tR.file.4$datapath,
+                                                     MS1DeltaMZ = input$MS1deltaMZ.4,
+                                                     MS1DeltaTR = input$MS1deltaTR.4,
+                                                     MS1MS2DeltaTR = input$MS1MS2DeltaTR.4,
+                                                     MS1MS2DeltaMZ = input$MS1MS2DeltaMZ.4,
+                                                     MS2DeltaMZ = input$MS2DeltaMZ.4,
+                                                     NeedCleanSpectra = input$NeedCleanSpectra.4,
+                                                     MS2NoiseRemoval = input$MS2NoiseRemoval.4,
+                                                     onlyKeepMax = input$onlyKeepMax.4,
+                                                     minScore = input$minScore.4,
+                                                     KeepNotMatched = input$KeepNotMatched.4,
+                                                     cores = input$cores.4)
 
-    openxlsx::write.xlsx(annotationFromPeakTableRes.list, file = input$xlsxFile.4, overwrite = T)
+    annotationFromPeakTableRes.list <- ClassicalAnnotationResult$ClassicalAnnotationResult
+    # print(annotationFromPeakTableRes.list)
+    write.csv(annotationFromPeakTableRes.list, file = input$csvFile.4, row.names = F)
 
     # output$downloadTop1Data.4 <- downloadHandler(
     #   filename = function() {
@@ -95,43 +95,37 @@ observeEvent(input$startMetEx.4, {
     #   }
     # )
 
-    data.4 <- annotationFromPeakTableRes.list[[1]]
-    data.4 <- data.4[!is.na(data.4$score),]
+    data.4 <- annotationFromPeakTableRes.list
+    data.4 <- data.4[!is.na(data.4$MS2_similarity),]
+    if (nrow(data.4) == 0){
+      data.4[1,] <- NA
+    }
 
-    data.4$score <- round(as.numeric(data.4$score), 3)
+    data.4$MS2_similarity <- round(as.numeric(data.4$MS2_similarity), 3)
     data.4$mz <- round(as.numeric(data.4$mz), 4)
     data.4$tr <- round(as.numeric(data.4$tr), 1)
-    data.4$DP <- round(as.numeric(data.4$DP), 3)
-    data.4$RDP <- round(as.numeric(data.4$RDP), 3)
-    data.4$frag.ratio <- round(as.numeric(data.4$frag.ratio), 3)
-    data.4$mzInDB <- round(as.numeric(data.4$mzInDB), 4)
-    data.4$trInDB <- round(as.numeric(data.4$trInDB), 1)
 
     pos.data.4 = which(colnames(data.4) != "mz" &
-                               colnames(data.4) != "tr" &
-                               colnames(data.4) != "DP" &
-                               colnames(data.4) != "RDP" &
-                               colnames(data.4) != "frag.ratio" &
-                               colnames(data.4) != "score" &
-                               colnames(data.4) != "mzInDB" &
-                               colnames(data.4) != "trInDB" &
-                               colnames(data.4) != "ID" &
-                               colnames(data.4) != "Name")
+                       colnames(data.4) != "tr" &
+                       colnames(data.4) != "MS2_similarity" &
+                       colnames(data.4) != "ID" &
+                       colnames(data.4) != "Name" &
+                       colnames(data.4) != "Formula")
 
-    output$Plot.4 <- renderPlot({
-      # ggplot(data.4, aes(x=tr,y=mz))
-      ggplot(data.4, aes(x=tr,y=mz))+
-        geom_point(aes(size=score,fill=score),shape=21,colour="black",alpha=0.8)+
-        scale_fill_gradient2(low="#377EB8",high="#E41A1C",midpoint = mean(data.4$score))+
-        scale_size_area(max_size=input$size.points.4)+
-        guides(size = guide_legend((title="score")))+
-        theme(
-          legend.text=element_text(size=10,face="plain",color="black"),
-          axis.title=element_text(size=10,face="plain",color="black"),
-          axis.text = element_text(size=10,face="plain",color="black"),
-          legend.position = "right"
-        )
-    })
+    # output$Plot.4 <- renderPlot({
+    #   # ggplot(data.4, aes(x=tr,y=mz))
+    #   ggplot(data.4, aes(x=tr,y=mz))+
+    #     geom_point(aes(size=MS2_similarity,fill=MS2_similarity),shape=21,colour="black",alpha=0.8)+
+    #     scale_fill_gradient2(low="#377EB8",high="#E41A1C",midpoint = mean(data.4$MS2_similarity))+
+    #     scale_size_area(max_size=input$size.points.4)+
+    #     guides(size = guide_legend((title="MS2_similarity")))+
+    #     theme(
+    #       legend.text=element_text(size=10,face="plain",color="black"),
+    #       axis.title=element_text(size=10,face="plain",color="black"),
+    #       axis.text = element_text(size=10,face="plain",color="black"),
+    #       legend.position = "right"
+    #     )
+    # })
 
     dataTableOutput("Data")
     output$Data.4 = renderDataTable(server = FALSE,{

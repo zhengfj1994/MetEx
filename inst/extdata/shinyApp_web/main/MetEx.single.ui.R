@@ -60,7 +60,7 @@ fluidPage(
              id = "Other.parameters",
              h3("Other parameters"),
              # textInput("csvFile", label = "Result (csv file)", value = "/download/test.csv"),
-             # textInput("xlsxFile", label = "Result (xlsx file)", value = "/download/test.xlsx"),
+             textInput("xlsxFile", label = "Result (xlsx file)", value = "E:/test.xlsx"),
              sliderInput("cores", "Number of cores for parallel computing:", min = 1, max = 64, value = 1, animate = TRUE),
              actionButton(inputId = "Advance.parameters.hide.button", label = "show / hide Advance parameters"),
              width = 4,
@@ -69,11 +69,17 @@ fluidPage(
            box(
              id = "Advance.parameters",
              h3("Advance parameters"),
-             numericInput(inputId = "MS2.sn.threshold", label = "MS2 S/N threshold", value = 3),
-             textInput("MS2.noise.intensity", label = "MS2 noise intensity", value = "minimum"),
-             selectInput("MS2.missing.value.padding", label = "MS2 missing value padding method",
-                         choices = list("half" = "half", "minimal" = "minimal.value"),
-                         selected = "minimal.value"),
+             selectInput("NeedCleanSpectra", label = "Do you want to clean MS2?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
+             numericInput(inputId = "MS2NoiseRemoval", label = "MS2 noise removel threshold", value = 0.01),
+             selectInput("onlyKeepMax", label = "Do you want to only keep the matched result with biggest score?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
+             numericInput(inputId = "minScore", label = "If you don't want to keep only one result for each feature, the above parameters should be selected as No and set a value of the min score which you want to keep.", value = 0.5),
+             selectInput("KeepNotMatched", label = "Do you want to only keep matched result?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
              width = 12
            ),
 
@@ -111,14 +117,13 @@ fluidPage(
   ),
 
   fluidRow(id = "result.plot.table",
-           column(width = 12,box(plotOutput("Plot"), width = NULL)),
-
+           # column(width = 12,box(plotOutput("Plot"), width = NULL)),
            box(
              width = 12,
-             box(
-               width = 12,
-               sliderInput("size.points", "The size of points:", min = 0, max = 20, value = 6, animate = TRUE)
-             ),
+             # box(
+             #   width = 12,
+             #   sliderInput("size.points", "The size of points:", min = 0, max = 20, value = 6, animate = TRUE)
+             # ),
              box(
                width = 6,
                selectInput("download.file",
@@ -135,11 +140,8 @@ fluidPage(
                 h3("Download the selected file.", align = "center"),
                 downloadButton("downloadData", "Download", width = "100%", height = "100%")
               )
-           ),
-
-           column(width = 12,box(dataTableOutput("Data"), width = NULL)),
+           )
+           # column(width = 12,box(dataTableOutput("Data"), width = NULL)),
            # h3("Result download"),
-
-
   )
 )

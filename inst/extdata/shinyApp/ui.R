@@ -15,8 +15,8 @@ shinyUI(
     sidebar = dashboardSidebar(
       sidebarMenu(
         menuItem("Introduction", tabName = "Introduction", icon = icon("laugh-wink")),
-        menuItem("MetEx (Single file)", tabName = "MetEx_S", icon = icon("chart-bar")),
-        menuItem("MetEx (Mutiple file)", tabName = "MetEx_M", icon = icon("chart-pie")),
+        menuItem("MetEx", tabName = "MetEx_S", icon = icon("chart-bar")),
+        # menuItem("MetEx (Mutiple file)", tabName = "MetEx_M", icon = icon("chart-pie")),
         menuItem("Classic annotation", tabName = "MetEx_P", icon = icon("file-csv")),
         menuItem("Databases", tabName = "Database_download", icon = icon("download")),
         menuItem("Demo data", tabName = "Demo_data", icon = icon("download")),

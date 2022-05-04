@@ -14,17 +14,20 @@ MetExAnnotation(
   msRawData,
   MS1deltaMZ,
   MS1deltaTR,
+  trRange = 30,
+  m = 200,
   entroThre,
   intThre,
   classficationMethod = "NoSVM",
-  mgfFile,
-  MS2.sn.threshold = 3,
-  MS2.noise.intensity = "minimum",
-  MS2.missing.value.padding = "half",
+  mgfFilePath,
   MS1MS2DeltaMZ,
-  MS2DeltaMZ,
   MS1MS2DeltaTR,
-  scoreMode = "average",
+  MS2DeltaMZ,
+  NeedCleanSpectra = T,
+  MS2NoiseRemoval = 0.01,
+  onlyKeepMax = T,
+  minScore = 0.5,
+  KeepNotMatched = T,
   MS2scoreFilter,
   cores = 1
 )
@@ -52,25 +55,27 @@ MetExAnnotation(
 
 \item{classficationMethod}{The classficatioin method of true signals and noises, "NoSVM" or "SVM" is avilable and "NoSVM" is the default value.}
 
-\item{mgfFile}{The file path of mgfFile.}
-
-\item{MS2.sn.threshold}{The S/N threshold of MS2 spectrum.}
-
-\item{MS2.noise.intensity}{The intensity of noise of MS2 spectrum.}
-
-\item{MS2.missing.value.padding}{The missing value padding method of MS2.}
-
 \item{MS1MS2DeltaMZ}{The tolerance of MS between MS1 and MS2.}
-
-\item{MS2DeltaMZ}{The tolerance of MS between experiment MS2 and database MS2.}
 
 \item{MS1MS2DeltaTR}{The tolerance of retention time between MS1 and MS2.}
 
-\item{scoreMode}{The score mode of MS2, the default value is "average".}
+\item{MS2DeltaMZ}{The tolerance of MS between experiment MS2 and database MS2.}
+
+\item{NeedCleanSpectra}{T}
+
+\item{MS2NoiseRemoval}{0.01}
+
+\item{onlyKeepMax}{T}
+
+\item{minScore}{0.5}
+
+\item{KeepNotMatched}{T}
 
 \item{MS2scoreFilter}{The threshold of MS2 score.}
 
 \item{cores}{The CPU cores used for parallel computation.}
+
+\item{mgfFile}{The file path of mgfFile.}
 }
 \value{
 MetExAnnotationRes
@@ -78,19 +83,4 @@ MetExAnnotationRes
 \description{
 Title
 Annotate metabolites by MetEx in one line.
-}
-\examples{
-MetExAnnotationRes <- MetExAnnotation(dbFile = system.file("extdata/database","MetEx_MSMLS.xlsx", package = "MetEx"),
-                ionMode = "P",
-                CE = "all",
-                msRawData = system.file("extdata/mzXML","example.mzXML", package = "MetEx"),
-                MS1deltaMZ = 0.01,
-                MS1deltaTR = 60,
-                entroThre = 2,
-                intThre = 270,
-                mgfFile = system.file("extdata/mgf","example.mgf", package = "MetEx"),
-                MS1MS2DeltaMZ = 0.01,
-                MS2DeltaMZ = 0.02,
-                MS1MS2DeltaTR = 12,
-                MS2scoreFilter = 0.6)
 }

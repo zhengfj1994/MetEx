@@ -32,7 +32,7 @@ fluidPage(
              id = "LC-MS.data.import.4",
              h3("LC-MS data import"),
              fileInput(inputId = "MS1.peak.table.4", label = "MS1 peak table (.csv file)", multiple = F),
-             fileInput(inputId = "mgfFile.4", label = "mgf file path", multiple = F),
+             textInput("mgfFile.4", label = "mgf file path", value = ""),
              width = 4,
              height = 350
            ),
@@ -50,14 +50,13 @@ fluidPage(
              numericInput(inputId = "MS1MS2DeltaMZ.4", label = "Delta m/z of MS1 and MS2", value = 0.01),
              numericInput(inputId = "MS2DeltaMZ.4", label = "Delta m/z of MS2", value = 0.02),
              numericInput(inputId = "MS1MS2DeltaTR.4", label = "Delta tR of MS1 and MS2", value = 12),
-             numericInput(inputId = "MS2scoreFilter.4", label = "MS2 score threshold", value = 0.6),
              width = 4,
              height = 400
            ),
            box(
              id = "Other.parameters.4",
              h3("Other parameters"),
-             # textInput("xlsxFile.4", label = "Result (.xlsx)", value = "/download/test.xlsx"),
+             textInput("csvFile.4", label = "Result (.csv)", value = "E:/test.csv"),
              sliderInput("cores.4", "Number of cores for parallel computing:", min = 1, max = 64, value = 1, animate = TRUE),
              actionButton(inputId = "Advance.parameters.hide.button.4", label = "Show / hide Advance parameters"),
              width = 4,
@@ -66,11 +65,17 @@ fluidPage(
            box(
              id = "Advance.parameters.4",
              h3("Advance parameters"),
-             numericInput(inputId = "MS2.sn.threshold.4", label = "MS2 S/N threshold", value = 3),
-             textInput("MS2.noise.intensity.4", label = "MS2 noise intensity", value = "minimum"),
-             selectInput("MS2.missing.value.padding.4", label = "MS2 missing value padding method",
-                         choices = list("half" = "half", "minimal" = "minimal.value"),
-                         selected = "minimal.value"),
+             selectInput("NeedCleanSpectra.4", label = "Do you want to clean MS2?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
+             numericInput(inputId = "MS2NoiseRemoval.4", label = "MS2 noise removel threshold", value = 0.01),
+             selectInput("onlyKeepMax.4", label = "Do you want to only keep the matched result with biggest score?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
+             numericInput(inputId = "minScore.4", label = "If you don't want to keep only one result for each feature, the above parameters should be selected as No and set a value of the min score which you want to keep.", value = 0.5),
+             selectInput("KeepNotMatched.4", label = "Do you want to only keep matched result?",
+                         choices = list("Yes" = TRUE, "No" = FALSE),
+                         selected = TRUE),
              width = 12
            ),
 
@@ -111,17 +116,12 @@ fluidPage(
              width = 12,
              box(
                width = 6,
-               h3("Download the TOP 1 candidate.", align = "center"),
+               h3("Download Result.", align = "center"),
                downloadButton("downloadTop1Data.4", "Download", width = "100%", height = "100%")
-             ),
-             box(
-               width = 6,
-               h3("Download the TOP 5 candidates.", align = "center"),
-               downloadButton("downloadTop5Data.4", "Download", width = "100%", height = "100%")
              )
-           ),
-           column(width = 12,box(plotOutput("Plot.4"), width = NULL)),
-           box(sliderInput("size.points.4", "The size of points:", min = 0, max = 20, value = 6, animate = TRUE),width = 12),
-           column(width = 12,box(dataTableOutput("Data.4"), width = NULL))
+           )
+           # column(width = 12,box(plotOutput("Plot.4"), width = NULL)),
+           # box(sliderInput("size.points.4", "The size of points:", min = 0, max = 20, value = 6, animate = TRUE),width = 12),
+           # column(width = 12,box(dataTableOutput("Data.4"), width = NULL))
   )
 )

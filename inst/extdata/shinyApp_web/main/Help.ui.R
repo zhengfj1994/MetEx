@@ -10,6 +10,6 @@ fluidPage(
           HTML("~~ <em>Dear Users, Welcome to check the help document</em> ~~")),
       includeMarkdown("README.md"),
       column(3)
-    )
   )
+)
 )

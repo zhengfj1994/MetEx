@@ -38,10 +38,6 @@ to exclude all molecular formulas with non-organic elements. What exactly are or
 the optional argument org.set. A second optional argument indicates which fields should never be converted into numbers,
 even if possible.
 }
-\examples{
-mspData <- readMsp(file =
-                   system.file("extdata/database","MoNA-export-MetaboBASE.msp", package = "MetEx"))
-}
 \references{
 This function is come form R package named "metaMS". The original name of this function is "read.msp"
 }

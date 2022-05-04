@@ -73,6 +73,13 @@ targetExtraction.optimized <- function(msRawData,
   EICdataEIC <- EICdata@eic$xcmsRaw
   EICdataEIC <- EICdataEIC[mergeData$uniqueID]
 
+  list2Character <- function(ithMatrix){
+    return(paste(paste(ithMatrix[,1], ithMatrix[,2], sep = " "), collapse = ";"))
+  }
+
+  EICdataEICVector <- unlist(lapply(EICdataEIC, list2Character))
+  dbData$EIC <- EICdataEICVector
+
   func <- function(ithRowDbData, ithEICdataEIC){
     extractedPeaks <- peakDectAndEntroCal(ithEICdataEIC, trRange = trRange, m = m)
     return(cbind(ithRowDbData[rep(1,nrow(extractedPeaks)),],extractedPeaks))

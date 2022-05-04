@@ -15,9 +15,6 @@
 #' @export readMsp
 #' @importFrom stats aggregate
 #'
-#' @examples
-#' mspData <- readMsp(file =
-#'                    system.file("extdata/database","MoNA-export-MetaboBASE.msp", package = "MetEx"))
 #' @references
 #' This function is come form R package named "metaMS". The original name of this function is "read.msp"
 
