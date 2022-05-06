@@ -10,7 +10,7 @@ MetEx
 > MetEx is a tool to extract and annotate metabolites from liquid chromatography–mass spectrometry data.
 
 ## Introduction
-Liquid chromatography–high resolution mass spectrometry (LC-HRMS) is the most popular platform for untargeted metabolomics methods, but annotating LC-HRMS data is a long-standing bottleneck that we are facing since years ago in metabolomics research. A wide variety of methods have been established to deal with the annotation issue. To date, however, there is a scarcity of efficient, systematic, and easy-to-handle tools that are tailored for metabolomics community. So we developed a user-friendly and powerful software/webserver, MetEx, to both enable implementation of classical peak detection-based annotation and a new annotation method based on targeted extraction algorithms. The new annotation method based on targeted extraction algorithms can annotate more than 2 times metabolites than classical peak detection-based annotation method because it reduces the loss of metabolite signal in the data preprocessing process. MetEx is freely available at http://www.metaboex.cn/MetEx and https://sourceforge.net/projects/metex (webserver and offline standalone program), the source code is available at https://github.com/zhengfj1994/MetEx.
+Liquid chromatography–high resolution mass spectrometry (LC-HRMS) is the most popular platform for untargeted metabolomics methods, but annotating LC-HRMS data is a long-standing bottleneck that we are facing since years ago in metabolomics research. A wide variety of methods have been established to deal with the annotation issue. To date, however, there is a scarcity of efficient, systematic, and easy-to-handle tools that are tailored for metabolomics community. So we developed a user-friendly and powerful software/webserver, MetEx, to both enable implementation of classical peak detection-based annotation and a new annotation method based on targeted extraction algorithms. The new annotation method based on targeted extraction algorithms can annotate more than 2 times metabolites than classical peak detection-based annotation method because it reduces the loss of metabolite signal in the data preprocessing process. MetEx is freely available at http://www.metaboex.cn/MetEx and https://sourceforge.net/projects/metex/files/ (webserver and offline standalone program), the source code is available at https://github.com/zhengfj1994/MetEx.
 
 <div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Workflow-of-MetEx.png"/></div>
 <h4 align="center">
@@ -21,7 +21,7 @@ Figure 1. The workflow of MetEx
 MetEx provides three ways to obtain, namely:
 
 1. R package  https://github.com/zhengfj1994/MetEx
-2. Offline standalone software https://sourceforge.net/projects/metex
+2. Offline standalone software https://sourceforge.net/projects/metex/files/
 3. web server http://www.metaboex.cn/MetEx
 
 We first recommend using offline standalone program.
@@ -32,7 +32,7 @@ We first recommend using offline standalone program.
 
 ### 1. Download MetExApp.zip
 
-Please download MetExApp.zip on SourceForge https://sourceforge.net/projects/metex
+Please download MetExApp.zip on SourceForge https://sourceforge.net/projects/metex/files/
 
 <div align=center><img width="800" src="https://github.com/zhengfj1994/MetEx/blob/master/screenshots/Download_MetExApp.png"/></div>
 <h4 align="center">
