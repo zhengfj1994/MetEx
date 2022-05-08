@@ -82,7 +82,7 @@ observeEvent(input$startMetEx.4, {
         paste("result-", Sys.Date(), ".csv", sep="")
       },
       content = function(file) {
-        write.csv(annotationFromPeakTableRes.list, file)
+        write.csv(annotationFromPeakTableRes.list, file, row.names = F, na = "")
       }
     )
     #

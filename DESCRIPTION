@@ -1,7 +1,7 @@
 Package: MetEx
 Type: Package
 Title: Targeted extraction from untargeted metabolomics dataset by using metabolomics database
-Version: 1.3.0
+Version: 1.3.1
 Author: Fujian Zheng
 Maintainer: Fujian Zheng <zhengfj@dicp.ac.cn>
 Depends: R (>= 3.6.0),

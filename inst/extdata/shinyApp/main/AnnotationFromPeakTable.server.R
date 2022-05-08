@@ -75,7 +75,7 @@ observeEvent(input$startMetEx.4, {
 
     annotationFromPeakTableRes.list <- ClassicalAnnotationResult$ClassicalAnnotationResult
     # print(annotationFromPeakTableRes.list)
-    write.csv(annotationFromPeakTableRes.list, file = input$csvFile.4, row.names = F)
+    write.csv(annotationFromPeakTableRes.list, file = input$csvFile.4, row.names = F, na = "")
 
     # output$downloadTop1Data.4 <- downloadHandler(
     #   filename = function() {

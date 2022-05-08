@@ -52,21 +52,47 @@ batchMS2Score.optimized <- function(ms1Info,
     mgfMatrix$FileName <- unlist(strsplit(rev(unlist(strsplit(mgfFile, split = "/")))[1], split = ".mgf"))[1]
     for (i in c(1:length(beginIndex))){
       mgfMatrix$RT[i] <- strsplit(mgfFileContent$V1[RTIndex[i]], split = "=")[[1]][2]
-      mgfMatrix$PEPMASS[i] <- strsplit(mgfFileContent$V1[pepmassIndex[i]], split = "=")[[1]][2]
-      if (beginIndex[i] + 4 == endIndex[i]){
+      mgfMatrix$PEPMASS[i] <- strsplit(strsplit(mgfFileContent$V1[pepmassIndex[i]], split = "=")[[1]][2], split = " ")[[1]][1]
+
+      ithMSMS <- mgfFileContent$V1[(beginIndex[i]):(endIndex[i])]
+      ithMSMS <- ithMSMS[!grepl("[a-zA-Z]", ithMSMS)]
+      if (length(ithMSMS) == 0){
         mgfMatrix$MSMS[i] <- NA
+      } else {
+        if (length(unlist(strsplit(ithMSMS[1], split = " "))) == 2){
+          ithMSMS <- strsplit(ithMSMS, split = " ")
+          ithMSMS <- data.frame(matrix(unlist(ithMSMS), byrow = T, ncol = 2), stringsAsFactors = F)
+          colnames(ithMSMS) <- c("mz", "intensity")
+          ithMSMS$mz <- as.numeric(ithMSMS$mz)
+          ithMSMS$intensity <- as.numeric(ithMSMS$intensity)
+          ithMSMS <- ithMSMS[which(ithMSMS$intensity/max(ithMSMS$intensity) > 0.005),]
+          mgfMatrix$MSMS[i] <- paste(paste(ithMSMS$mz,ithMSMS$intensity, sep = " "), collapse = ";")
+        } else if (length(unlist(strsplit(ithMSMS[1], split = " "))) == 3){
+          ithMSMS <- strsplit(ithMSMS, split = " ")
+          ithMSMS <- data.frame(matrix(unlist(ithMSMS), byrow = T, ncol = 3), stringsAsFactors = F)
+          colnames(ithMSMS) <- c("mz", "intensity", "charge")
+          ithMSMS$mz <- as.numeric(ithMSMS$mz)
+          ithMSMS$intensity <- as.numeric(ithMSMS$intensity)
+          ithMSMS <- ithMSMS[which(ithMSMS$intensity/max(ithMSMS$intensity) > 0.005),]
+          mgfMatrix$MSMS[i] <- paste(paste(ithMSMS$mz,ithMSMS$intensity, sep = " "), collapse = ";")
+        } else {
+          packageStartupMessage("The format of mgf is wrong!")
+        }
       }
-      else {
-        ithMSMS <- mgfFileContent$V1[(beginIndex[i] + 4):(endIndex[i] - 1)]
-        ithMSMS <- strsplit(ithMSMS, split = " ")
-        ithMSMS <- data.frame(matrix(unlist(ithMSMS), byrow = T, ncol = 2), stringsAsFactors = F)
-        colnames(ithMSMS) <- c("mz", "intensity")
-        ithMSMS$intensity <- as.numeric(ithMSMS$intensity)
-        ithMSMS <- ithMSMS[which(ithMSMS$intensity/max(ithMSMS$intensity) > 0.005),]
-        mgfMatrix$MSMS[i] <- paste(paste(ithMSMS$mz,ithMSMS$intensity, sep = " "), collapse = ";")
-      }
+      # if (beginIndex[i] + 4 == endIndex[i]){
+      #   mgfMatrix$MSMS[i] <- NA
+      # }
+      # else {
+      #   ithMSMS <- mgfFileContent$V1[(beginIndex[i] + 4):(endIndex[i] - 1)]
+      #   ithMSMS <- strsplit(ithMSMS, split = " ")
+      #   ithMSMS <- data.frame(matrix(unlist(ithMSMS), byrow = T, ncol = 2), stringsAsFactors = F)
+      #   colnames(ithMSMS) <- c("mz", "intensity")
+      #   ithMSMS$intensity <- as.numeric(ithMSMS$intensity)
+      #   ithMSMS <- ithMSMS[which(ithMSMS$intensity/max(ithMSMS$intensity) > 0.005),]
+      #   mgfMatrix$MSMS[i] <- paste(paste(ithMSMS$mz,ithMSMS$intensity, sep = " "), collapse = ";")
+      # }
     }
-    mgfMatrix <- mgfMatrix[which(!is.na(mgfMatrix$MSMS)),]
+    mgfMatrix <- mgfMatrix[which(!is.na(mgfMatrix$MSMS) & mgfMatrix$MSMS != ""),]
     return(mgfMatrix)
   }
   ## Define MS1MS2Match function
