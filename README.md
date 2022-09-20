@@ -620,6 +620,10 @@ Run faster
 
 Using Spectral entropy to calculate MS2 similarity
 
+### `v1.4`
+
+Relaunch MetEx data processing options of multiple files.
+
 ## Developing Plan
 
 - [ ] Update the MS1 and tr matching method.

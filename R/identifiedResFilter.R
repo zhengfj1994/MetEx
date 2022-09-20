@@ -21,7 +21,7 @@ identifiedResFilter <- function(batchMS2ScoreResult, MS2score){
   MS1identifiedRes <- identifiedRes %>% group_by(Name) %>% filter(peakHeight == max(peakHeight))
   MS1identifiedRes <- distinct(MS1identifiedRes, Name, .keep_all = TRUE)
 
-  MS2acquired.identifiedRes <- identifiedRes[which(identifiedRes$MS2_similarity >= 0.6),]
+  MS2acquired.identifiedRes <- identifiedRes[which(identifiedRes$MS2_similarity >= MS2score),]
 
   peak_duplicated_MS2identifiedRes = MS2acquired.identifiedRes %>% group_by(trOfPeak, peakHeight, entropy) %>% filter(MS2_similarity == max(MS2_similarity))
   MSMS_duplicated_MS2identifiedRes = MS2acquired.identifiedRes %>% group_by(trOfPeak, peakHeight, entropy, MSMS_in_file) %>% filter(MS2_similarity == max(MS2_similarity))

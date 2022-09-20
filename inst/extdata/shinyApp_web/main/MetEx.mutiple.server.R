@@ -88,7 +88,7 @@ observeEvent(input$startMetEx.3, {
       # MetExAnnotationResList[[grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i]]] <- MetExAnnotationResList.i
       # res.sheet <- peakGroup(MetExAnnotationResList)
     }
-
+    mergeMetExResult.3 <- mergeMetExResult(input$xlsxFile.3)
     # templist <- list()
     # for (i in names(MetExAnnotationResList)){
     #   templist[[i]] <- MetExAnnotationResList[[i]][[3]]

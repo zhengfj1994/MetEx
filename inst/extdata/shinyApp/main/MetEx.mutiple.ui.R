@@ -31,8 +31,8 @@ fluidPage(
            box(
              id = "LC-MS.data.import.3",
              h3("LC-MS data import"),
-             textInput("msRawData.3", label = "mzXML file path"),
-             textInput("mgfFile.3", label = "mgf file path"),
+             textInput("msRawData.3", label = "mzXML file path (Must be a folder!)"),
+             textInput("mgfFile.3", label = "mgf file path (Must be a folder!)"),
              width = 4,
              height = 350
            ),
@@ -60,7 +60,7 @@ fluidPage(
              id = "Other.parameters.3",
              h3("Other parameters"),
              # textInput("csvFile.3", label = "Result (csv file) path", value = "/download/test/result"),
-             textInput("xlsxFile.3", label = "Result (xlsx file) path", value = "E:/test"),
+             textInput("xlsxFile.3", label = "Result (xlsx file) path (Must be an existing empty folder!, Each file generates a separate result file, and there is also a summary result.)", value = "E:/test"),
              sliderInput("cores.3", "Number of cores for parallel computing:", min = 1, max = 64, value = 1, animate = TRUE),
              actionButton(inputId = "Advance.parameters.hide.button.3", label = "Show / hide Advance parameters"),
              width = 4,

@@ -8,6 +8,7 @@
 #' @return dbData
 #' @export dbImporter
 #' @importFrom openxlsx read.xlsx
+#' @importFrom readxl read_excel
 #'
 #' @examples
 #' dbData <- dbImporter(
@@ -20,7 +21,11 @@ dbImporter <- function(dbFile,
   # Check the database file type
   SuffixName <- strsplit(dbFile,".",fixed = TRUE)[[1]][length(strsplit(dbFile,".",fixed = TRUE)[[1]])]
   if (SuffixName == "xlsx"){
-    dbData <- openxlsx::read.xlsx(dbFile,sheet = 1)
+    # dbData <- openxlsx::read.xlsx(dbFile,sheet = 1)
+    dbData <- readxl::read_excel(dbFile)
+    message(paste0("The database '", dbFile, "' is imported"))
+  } else if (SuffixName == "csv"){
+    dbData <- read.csv(dbFile)
     message(paste0("The database '", dbFile, "' is imported"))
   }
   else {

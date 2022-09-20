@@ -26,9 +26,9 @@ MetExAnnotation(
   NeedCleanSpectra = T,
   MS2NoiseRemoval = 0.01,
   onlyKeepMax = T,
-  minScore = 0.5,
+  minScore = 0,
   KeepNotMatched = T,
-  MS2scoreFilter,
+  MS2scoreFilter = 0,
   cores = 1
 )
 }

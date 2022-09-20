@@ -606,19 +606,23 @@ Fujian Zheng <zhengfj@dicp.ac.cn> or <2472700387@qq.com>
 
 ## Change Log
 ### `v1.0`
-The first version
+The first version.
 
 ### `v1.1`
 
-Fixed bugs
+Fixed bugs.
 
 ### `v1.2`
 
-Run faster
+Run faster.
 
 ### `v1.3`
 
-Using Spectral entropy to calculate MS2 similarity
+Using Spectral entropy to calculate MS2 similarity.
+
+### `v1.4`
+
+Relaunch MetEx data processing options of multiple files.
 
 ## Developing Plan
 
