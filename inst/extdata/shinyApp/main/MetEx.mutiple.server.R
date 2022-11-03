@@ -83,6 +83,9 @@ observeEvent(input$startMetEx.3, {
                       KeepNotMatched = input$KeepNotMatched.3,
                       MS2scoreFilter = input$MS2scoreFilter.3,
                       cores = input$cores.3)
+      if (!dir.exists(input$xlsxFile.3)){
+        dir.create(input$xlsxFile.3)
+      }
       openxlsx::write.xlsx(MetExAnnotationResList.i, file = paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i])), overwrite = T)
       # print(paste0(input$xlsxFile.3, "/", gsub(".mzXML", ".xlsx", mzXML.files.3[mzXML.files.3.i])))
       # MetExAnnotationResList[[grep('.mzXML', dir(msRawData.MetEx), value = TRUE)[mzXML.files.3.i]]] <- MetExAnnotationResList.i
