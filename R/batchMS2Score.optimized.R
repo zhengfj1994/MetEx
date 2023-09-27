@@ -134,6 +134,7 @@ batchMS2Score.optimized <- function(ms1Info,
         spec_reference <- as.data.frame(do.call("rbind", strsplit(unlist(strsplit(MS2inDB, split = ";")), split = " ")))
         colnames(spec_reference) <- c("mz", "intensity")
         spec_reference <- as.data.frame(lapply(spec_reference,as.numeric))
+        spec_reference <- na.omit(spec_reference)
         # spec_matched = tools.match_peaks_in_spectra(spec_a=spec_query,
         #                                             spec_b=spec_reference,
         #                                             ms2_ppm=NA, ms2_da=0.01)

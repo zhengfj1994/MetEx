@@ -80,7 +80,7 @@ MetExAnnotation <- function(dbFile,
                                                  NeedCleanSpectra,
                                                  MS2NoiseRemoval,
                                                  onlyKeepMax,
-                                                 minScore=,
+                                                 minScore=minScore,
                                                  KeepNotMatched,
                                                  cores = cores)
   MetExAnnotationRes <- identifiedResFilter(batchMS2ScoreResult = batchMS2ScoreResult$batchMS2ScoreResult,
